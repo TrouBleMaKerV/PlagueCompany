@@ -11,7 +11,7 @@
     <groupId>com</groupId>
     <artifactId>nju</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>nju</name>
+    <name>plague-company</name>
     <description>Epidemic information system based on microservice architecture</description>
 
     <properties>
@@ -43,6 +43,12 @@
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.18</version>
         </dependency>
     </dependencies>
 
