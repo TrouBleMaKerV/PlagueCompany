@@ -13,4 +13,6 @@ public interface ProvinceDao extends JpaRepository<Province, Long> {
     Province findProvinceById(Long id);
 
     List<Province> findAllByProvinceName(String name);
+
+    List<Province> findAll();
 }

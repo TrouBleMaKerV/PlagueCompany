@@ -37,7 +37,6 @@
             <artifactId>spring-boot-starter-jdbc</artifactId>
         </dependency>
 
-
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

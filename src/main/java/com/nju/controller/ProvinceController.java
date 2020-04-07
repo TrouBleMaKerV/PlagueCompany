@@ -25,12 +25,12 @@ public class ProvinceController {
 
     // 返回省的表格数据（包括各个国家的表格数据）
     @ResponseBody
-    @GetMapping("/{name}")
-    public List<ProvinceTableData> buildMerchantsInfo(@PathVariable String name) {
+    @GetMapping("/buildMerchantsInfo")
+    public List<ProvinceTableData> buildMerchantsInfo(@RequestParam String name) {
         List<Province> list = provinceService.findAllByProvinceName(name);
 
         List<ProvinceTableData> data = new ArrayList<>();
-        for (int i = list.size() - 1; i >= 0; i--) {
+        for (int i = 0; i < list.size(); i++) {
             Province p = list.get(i);
 
             String provinceName = p.getProvinceName();
@@ -56,9 +56,9 @@ public class ProvinceController {
     }
 
     @ResponseBody
-    @GetMapping("/{name}")
-    public FourData buildFourDataInfo(@PathVariable String name) {
-        List<Province> list = provinceService.findAllByProvinceName(name);
+    @GetMapping("/buildFourDataInfo")
+    public FourData buildFourDataInfo(@RequestParam String fourData) {
+        List<Province> list = provinceService.findAllByProvinceName(fourData);
 
         Province p = list.get(0);
 

@@ -130,7 +130,6 @@ public class InsertDBServiceImpl {
             String line = null;
             while((line=reader.readLine())!=null){
 
-
                 String item[] = line.split(",");//CSV格式文件为逗号分隔符文件，这里根据逗号切分
 //                if(item[4].equals("新疆维吾尔自治区")){
 //                    System.out.println(line);

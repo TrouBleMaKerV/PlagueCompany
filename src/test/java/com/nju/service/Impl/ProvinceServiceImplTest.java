@@ -1,5 +1,6 @@
 package com.nju.service.Impl;
 
+import com.nju.dao.ProvinceDao;
 import com.nju.entity.Province;
 import com.nju.service.ProvinceService;
 import org.junit.Test;
@@ -20,10 +21,21 @@ public class ProvinceServiceImplTest {
     @Autowired
     ProvinceService provinceService;
 
+    @Autowired
+    ProvinceDao provinceDao;
+
     @Test
     public void findAllByProvinceName() {
-        List<Province> list = provinceService.findAllByProvinceName("中国".trim());
+        List<Province> list = provinceService.findAllByProvinceName("中国");
         System.out.println("---------" + list.size());
+        for (Province province : list) {
+            System.out.println(province.getProvinceName());
+        }
+    }
+
+    @Test
+    public void findByProvinceName() {
+        List<Province> list = provinceDao.findAll();
         for (Province province : list) {
             System.out.println(province.getProvinceName());
         }

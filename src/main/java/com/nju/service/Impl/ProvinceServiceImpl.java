@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by thpffcj on 2020/4/5.
@@ -26,6 +28,8 @@ public class ProvinceServiceImpl implements ProvinceService {
 
     @Override
     public List<Province> findAllByProvinceName(String name){
-        return provinceDao.findAllByProvinceName(name);
+        List<Province> list = new ArrayList<>();
+        list = provinceDao.findAll().stream().filter(province -> province.getProvinceName().equals(name)).collect(Collectors.toList());
+        return list;
     }
 }
