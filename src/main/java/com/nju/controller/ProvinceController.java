@@ -1,5 +1,6 @@
 package com.nju.controller;
 
+import com.nju.entity.FourData;
 import com.nju.entity.Province;
 import com.nju.entity.ProvinceTableData;
 import com.nju.service.ProvinceService;
@@ -50,6 +51,25 @@ public class ProvinceController {
                             currentCount, confirmedCount, suspectedCount, curedCount, deadCount);
             data.add(provinceTableData);
         }
+
+        return data;
+    }
+
+    @ResponseBody
+    @GetMapping("/{name}")
+    public FourData buildFourDataInfo(@PathVariable String name) {
+        List<Province> list = provinceService.findAllByProvinceName(name);
+
+        Province p = list.get(0);
+
+        String provinceName = p.getProvinceName();
+        int confirmedCount = p.getConfirmedCount();
+        int suspectedCount = p.getSuspectedCount();
+        int curedCount = p.getCuredCount();
+        int deadCount = p.getDeadCount();
+        int currentCount = confirmedCount - curedCount - deadCount;
+
+        FourData data = new FourData(provinceName,currentCount,confirmedCount,suspectedCount,curedCount,deadCount);
 
         return data;
     }

@@ -22,7 +22,7 @@ public class ProvinceServiceImplTest {
 
     @Test
     public void findAllByProvinceName() {
-        List<Province> list = provinceService.findAllByProvinceName("上海市");
+        List<Province> list = provinceService.findAllByProvinceName("中国".trim());
         System.out.println("---------" + list.size());
         for (Province province : list) {
             System.out.println(province.getProvinceName());

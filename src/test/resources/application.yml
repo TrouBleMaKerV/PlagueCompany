@@ -12,6 +12,7 @@ spring:
     open-in-view: false
   datasource:
     url: jdbc:mysql://172.19.240.128:3306/plague_company?autoReconnect=true
+#    url: jdbc:mysql://localhost:3306/test?autoReconnect=true
     username: root
     password: "root"
     tomcat:
