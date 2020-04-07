@@ -24,20 +24,8 @@ public class ProvinceServiceImpl implements ProvinceService {
         return provinceDao.findProvinceById(id);
     }
 
-//    @Override
-//    public Response findAllByProvinceName(String name) {
-//
-//        Response response = new Response();
-//        List<Province> list = provinceDao.findAllByProvinceName(name);
-//
-//        response.setData(list);
-//        return response;
-//    }
-
     @Override
     public List<Province> findAllByProvinceName(String name){
-        List<Province> list = provinceDao.findAllByProvinceName(name);
-
-        return list;
+        return provinceDao.findAllByProvinceName(name);
     }
 }

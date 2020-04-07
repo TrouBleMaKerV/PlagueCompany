@@ -19,10 +19,15 @@ import java.util.Date;
 public class City implements Serializable {
 
     @Id
+    @GeneratedValue
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    @Basic
     @Column(name = "cityName", nullable = false)
     private String cityName;
 
-    @Id
+    @Basic
     @Column(name = "date", nullable = false)
     private Date date;
 
