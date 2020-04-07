@@ -7,6 +7,7 @@ import com.nju.vo.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,13 +24,20 @@ public class ProvinceServiceImpl implements ProvinceService {
         return provinceDao.findProvinceById(id);
     }
 
-    @Override
-    public Response findAllByProvinceName(String name) {
+//    @Override
+//    public Response findAllByProvinceName(String name) {
+//
+//        Response response = new Response();
+//        List<Province> list = provinceDao.findAllByProvinceName(name);
+//
+//        response.setData(list);
+//        return response;
+//    }
 
-        Response response = new Response();
+    @Override
+    public List<Province> findAllByProvinceName(String name){
         List<Province> list = provinceDao.findAllByProvinceName(name);
 
-        response.setData(list);
-        return response;
+        return list;
     }
 }

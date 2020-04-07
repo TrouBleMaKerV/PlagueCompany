@@ -12,5 +12,7 @@ public interface ProvinceService {
 
     Province findProvinceById(Long id);
 
-    Response findAllByProvinceName(String name);
+//    Response findAllByProvinceName(String name);
+
+    List<Province> findAllByProvinceName(String name);
 }
