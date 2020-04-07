@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by thpffcj on 2020/4/5.
@@ -14,16 +16,15 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Entity
 @Table(name = "city_data")
-public class City {
+public class City implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-
-    @Basic
     @Column(name = "cityName", nullable = false)
     private String cityName;
+
+    @Id
+    @Column(name = "date", nullable = false)
+    private Date date;
 
     @Basic
     @Column(name = "provName", nullable = false)
@@ -44,8 +45,4 @@ public class City {
     @Basic
     @Column(name = "deadCount", nullable = false)
     private int deadCount;
-
-    @Basic
-    @Column(name = "date", nullable = false)
-    private String date;
 }

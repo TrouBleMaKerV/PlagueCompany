@@ -61,11 +61,6 @@
             <artifactId>lombok</artifactId>
             <version>1.16.18</version>
         </dependency>
-        <dependency>
-            <groupId>com</groupId>
-            <artifactId>plague-company</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
     </dependencies>
 
     <build>

@@ -3,8 +3,11 @@ package com.nju.service.Impl;
 import com.nju.dao.ProvinceDao;
 import com.nju.entity.Province;
 import com.nju.service.ProvinceService;
+import com.nju.vo.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by thpffcj on 2020/4/5.
@@ -20,8 +23,13 @@ public class ProvinceServiceImpl implements ProvinceService {
         return provinceDao.findProvinceById(id);
     }
 
-    public static void main(String[] args) {
-        ProvinceServiceImpl p = new ProvinceServiceImpl();
-        p.findProvinceById(1L);
+    @Override
+    public Response findAllByProvinceName(String name) {
+
+        Response response = new Response();
+        List<Province> list = provinceDao.findAllByProvinceName(name);
+
+        response.setData(list);
+        return response;
     }
 }

@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * Created by thpffcj on 2020/4/5.
@@ -17,13 +19,17 @@ import javax.persistence.*;
 public class Province {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     @Column(name = "id", nullable = false)
     private Long id;
 
     @Basic
     @Column(name = "provinceName", nullable = false)
     private String provinceName;
+
+    @Basic
+    @Column(name = "date", nullable = false)
+    private Date date;
 
     @Basic
     @Column(name = "confirmedCount", nullable = false)
@@ -40,8 +46,4 @@ public class Province {
     @Basic
     @Column(name = "deadCount", nullable = false)
     private int deadCount;
-
-    @Basic
-    @Column(name = "date", nullable = false)
-    private String date;
 }

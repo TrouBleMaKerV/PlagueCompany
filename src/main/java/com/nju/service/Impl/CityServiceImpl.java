@@ -1,6 +1,5 @@
 package com.nju.service.Impl;
 
-import com.nju.dao.CityDao;
 import com.nju.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +10,4 @@ import org.springframework.stereotype.Service;
 @Service
 public class CityServiceImpl implements CityService {
 
-    @Autowired
-    CityDao cityDao;
 }
