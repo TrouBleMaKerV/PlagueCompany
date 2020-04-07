@@ -22,11 +22,11 @@ public class ProvinceServiceImplTest {
 
     @Test
     public void findAllByProvinceName() {
-//        List<Province> list = provinceService.findAllByProvinceName("123");
-//        System.out.println("---------" + list.size());
-//        for (Province province : list) {
-//            System.out.println(province.getProvinceName());
-//        }
+        List<Province> list = provinceService.findAllByProvinceName("上海市");
+        System.out.println("---------" + list.size());
+        for (Province province : list) {
+            System.out.println(province.getProvinceName());
+        }
     }
 
     @Test

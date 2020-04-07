@@ -1,6 +1,5 @@
 package com.nju.service.Impl;
 
-
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -56,9 +55,7 @@ public class InsertDBServiceImpl {
     }
 
     private static final String user = "root";
-
     private static final String pwd = "root";
-
     private static final String url = "jdbc:mysql://localhost:3306/test?serverTimezone=UTC";
 
     private static final String driver = "com.mysql.jdbc.Driver";

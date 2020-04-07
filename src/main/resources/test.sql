@@ -28,7 +28,7 @@ CREATE TABLE `city_data` (
   `deadCount` int(8) NOT NULL,
   `date` date NOT NULL,
   PRIMARY KEY (`cityName`,`date`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8;
 
 -- ----------------------------
 -- Records of city_data
