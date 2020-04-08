@@ -3,6 +3,8 @@ package com.nju.service;
 import com.nju.entity.Province;
 import com.nju.vo.Response;
 
+import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -13,4 +15,6 @@ public interface ProvinceService {
     Province findProvinceById(Long id);
 
     List<Province> findAllByProvinceName(String name);
+
+    List<Province> findAllByDate(String date) throws Exception;
 }

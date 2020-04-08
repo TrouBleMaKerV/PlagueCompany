@@ -24,25 +24,33 @@ public class ProvinceServiceImplTest {
     @Autowired
     ProvinceDao provinceDao;
 
-    @Test
-    public void findAllByProvinceName() {
-        List<Province> list = provinceService.findAllByProvinceName("中国");
-        System.out.println("---------" + list.size());
-        for (Province province : list) {
-            System.out.println(province.getProvinceName());
-        }
-    }
-
-    @Test
-    public void findByProvinceName() {
-        List<Province> list = provinceDao.findAll();
-        for (Province province : list) {
-            System.out.println(province.getProvinceName());
-        }
-    }
-
+//    @Test
+//    public void findAllByProvinceName() {
+//        List<Province> list = provinceService.findAllByProvinceName("中国");
+//        System.out.println("---------" + list.size());
+//        for (Province province : list) {
+//            System.out.println(province.getProvinceName());
+//        }
+//    }
+//
+//    @Test
+//    public void findByProvinceName() {
+//        List<Province> list = provinceDao.findAll();
+//        for (Province province : list) {
+//            System.out.println(province.getProvinceName());
+//        }
+//    }
+//
     @Test
     public void findProvinceById() {
         System.out.println(provinceService.findProvinceById(1L));
     }
+//
+//    @Test
+//    public void findProvinceByDate() throws Exception {
+//        List<Province> list = provinceService.findAllByDate("2020-04-02");
+//        for (Province province : list) {
+//            System.out.println(province.getProvinceName());
+//        }
+//    }
 }
