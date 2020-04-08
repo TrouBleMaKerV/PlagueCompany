@@ -61,7 +61,33 @@ public class ProvinceController {
     @ResponseBody
     @GetMapping("/buildChinaInfo")
     public List<ProvinceTableData> buildChinaInfo() throws Exception {
-        List<Province> list = provinceService.findAllByDate("date");
+        List<Province> list = provinceService.findChinaByDate("date");
+        List<ProvinceTableData> data = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            Province p = list.get(i);
+            String provinceName = p.getProvinceName();
+            int confirmedCount = p.getConfirmedCount();
+            int suspectedCount = p.getSuspectedCount();
+            int curedCount = p.getCuredCount();
+            int deadCount = p.getDeadCount();
+            int currentCount = confirmedCount - curedCount - deadCount;
+
+            ProvinceTableData provinceTableData = new ProvinceTableData(provinceName, "date",
+                    currentCount, confirmedCount, suspectedCount, curedCount, deadCount);
+            data.add(provinceTableData);
+        }
+
+        return data;
+    }
+
+    /**
+     * 返回世界各个国家的数据
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/buildForeignInfo")
+    public List<ProvinceTableData> buildForeignInfo() throws Exception {
+        List<Province> list = provinceService.findForeignByDate("date");
         List<ProvinceTableData> data = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
             Province p = list.get(i);
@@ -85,7 +111,7 @@ public class ProvinceController {
     public FourData buildFourDataInfo(@RequestParam String name) {
         List<Province> list = provinceService.findAllByProvinceName(name);
 
-        Province p = list.get(0);
+        Province p = list.get(list.size() - 1);
         String provinceName = p.getProvinceName();
         int confirmedCount = p.getConfirmedCount();
         int suspectedCount = p.getSuspectedCount();

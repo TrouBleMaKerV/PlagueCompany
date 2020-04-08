@@ -16,5 +16,7 @@ public interface ProvinceService {
 
     List<Province> findAllByProvinceName(String name);
 
-    List<Province> findAllByDate(String date) throws Exception;
+    List<Province> findChinaByDate(String date) throws Exception;
+
+    List<Province> findForeignByDate(String date) throws Exception;
 }

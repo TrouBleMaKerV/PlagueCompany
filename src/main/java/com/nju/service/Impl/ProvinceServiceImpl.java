@@ -43,16 +43,30 @@ public class ProvinceServiceImpl implements ProvinceService {
     }
 
     @Override
-    public List<Province> findAllByDate(String date) throws Exception {
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-//        return provinceDao.findAll().stream()
-//                .filter(province -> set.contains(province.getProvinceName()))
-//                .filter(province -> dateFormat.format(province.getDate()).equals(date))
-//                .collect(Collectors.toList());
-
+    public List<Province> findChinaByDate(String date) throws Exception {
         Set<String> s = new HashSet<>();
         List<Province> list = provinceDao.findAll().stream().
                 filter(province -> set.contains(province.getProvinceName())) .collect(Collectors.toList());
+        List<Province> result = new ArrayList<>();
+
+        for (int i = list.size() - 1; i >= 0; i--) {
+            Province p = list.get(i);
+            String provinceName = p.getProvinceName();
+            if (s.contains(provinceName)) {
+                continue;
+            }
+            s.add(provinceName);
+            result.add(p);
+        }
+
+        return result;
+    }
+
+    @Override
+    public List<Province> findForeignByDate(String date) throws Exception {
+        Set<String> s = new HashSet<>();
+        List<Province> list = provinceDao.findAll().stream().
+                filter(province -> !set.contains(province.getProvinceName())) .collect(Collectors.toList());
         List<Province> result = new ArrayList<>();
 
         for (int i = list.size() - 1; i >= 0; i--) {
